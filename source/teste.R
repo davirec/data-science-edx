@@ -16,7 +16,7 @@
 # esses comandos só funcionaram no shell (menu tools > shell)
 #git config --global user.email "davi.rec@gmail.com"
 
-# git config --global user.name "Davi Simoes"
+# git config --global user.name "davirec"
 
 
 # chave ssh gerada  pelo programa rstudio na opção global git/svn.
