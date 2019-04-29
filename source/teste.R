@@ -12,7 +12,7 @@
 # fatal: unable to auto-detect email address (got 'davi@nati01-ubuntu.(none)')
 
 
-
+#fatal: unable to auto-detect email address
 # esses comandos só funcionaram no shell (menu tools > shell)
 #git config --global user.email "davi.rec@gmail.com"
 
