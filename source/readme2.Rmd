@@ -28,3 +28,34 @@ plot(pressure)
 ```
 
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+
+
+
+
+Se o RStudio solicitar um nome de usuário e senha toda vez que você tentar enviar seu projeto para o Github , abra o shell (menu Git: Mais / Prot…) e faça o seguinte:
+
+1) Definir nome de usuário e email (se você não fez isso antes)
+
+git config --global user.name "your_username" 
+git configuração --global user.email " your_email@example.com "
+2) Criar chave SSH
+
+ssh-keygen -t rsa -C " your_email@example.com " 
+No RStudio, vá ao menu Ferramentas / Opções globais / Git SVN / Exibir chave pública e copie a chave para sua configuração de conta do Github (Editar perfil / Chaves SSH / Adicionar chave SSH).
+Para verificar se a autenticação ssh funciona, tente executar
+
+ssh -T git@github.com
+e você deve obter algo como
+
+Olá your_username! Você foi autenticado com sucesso, mas o GitHub não fornece acesso ao shell. 
+
+3) Mude remote.origin.url de HTTPS para HTTP 
+
+Pode ser específico do Windows, mas depois de 1) +2) o RStudio ainda me pede nome de usuário e senha. Depois de uma longa pesquisa no Google, encontrei uma solução aqui  e isso é
+
+git config remote.origin.url git@github.com:your_username/your_project.git
+
+
+
+
