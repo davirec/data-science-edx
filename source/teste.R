@@ -20,4 +20,4 @@
 
 
 # chave ssh gerada  pelo programa rstudio na opção global git/svn.
-# chave pública cadastrada no github
+# chave pública cadastrada no github 
