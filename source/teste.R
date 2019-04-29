@@ -17,3 +17,7 @@
 #git config --global user.email "davi.rec@gmail.com"
 
 # git config --global user.name "Davi Simoes"
+
+
+# chave ssh gerada  pelo programa rstudio na opção global git/svn.
+# chave pública cadastrada no github
