@@ -200,11 +200,9 @@ $(document).ready(function () {
 <h2>Configurando o SSH no RStudio</h2>
 <p>Se o RStudio solicitar um nome de usuário e senha toda vez que você tentar enviar seu projeto para o Github , abra o shell (menu Git: Mais / Prot…) e faça o seguinte:</p>
 <ol style="list-style-type: decimal">
-<li>Definir nome de usuário e email (se você não fez isso antes)</li>
+<li>Definir nome de usuário e email (se você não fez isso antes) <code>git config --global user.name &quot;your_username&quot;</code> <code>git configuração --global user.email &quot; your_email@example.com &quot;</code></li>
+<li>Criar chave SSH <code>ssh-keygen -t rsa -C &quot;your_email@example.com&quot;</code> No RStudio, vá ao menu Ferramentas / Opções globais / Git SVN / Exibir chave pública e copie a chave para sua configuração de conta do Github (Editar perfil / Chaves SSH / Adicionar chave SSH). Para verificar se a autenticação ssh funciona, tente executar <code>ssh -T git@github.com</code> e você deve obter algo como:</li>
 </ol>
-<p><code>git config --global user.name &quot;your_username&quot;</code> <code>git configuração --global user.email &quot; your_email@example.com &quot;</code> 2) Criar chave SSH</p>
-<p><code>ssh-keygen -t rsa -C &quot;your_email@example.com&quot;</code> No RStudio, vá ao menu Ferramentas / Opções globais / Git SVN / Exibir chave pública e copie a chave para sua configuração de conta do Github (Editar perfil / Chaves SSH / Adicionar chave SSH). Para verificar se a autenticação ssh funciona, tente executar</p>
-<p><code>ssh -T git@github.com</code> e você deve obter algo como:</p>
 <p>The authenticity of host ‘github.com (IP ADDRESS)’ can’t be established. RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8. Are you sure you want to continue connecting (yes/no)?</p>
 <p>Digite: yes</p>
 <p>Olá your_username! Você foi autenticado com sucesso, mas o GitHub não fornece acesso ao shell.</p>

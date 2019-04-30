@@ -21,6 +21,7 @@ No RStudio, vá ao menu Ferramentas / Opções globais / Git SVN / Exibir chave 
 Para verificar se a autenticação ssh funciona, tente executar
 
 `ssh -T git@github.com`
+
 e você deve obter algo como:
 
 The authenticity of host 'github.com (IP ADDRESS)' can't be established.
