@@ -1,7 +1,7 @@
 library(tidyverse)
 library(rvest)
 
-
+#alterado 15/07/2019
 
 url <- paste0("https://en.wikipedia.org/w/index.php?title=",
               "Gun_violence_in_the_United_States_by_state&oldid=843135608")
@@ -114,7 +114,7 @@ test <- c("GBIO33", "STBP3", "TESA3", "CCPR3", "MSPA3", "KLBN3", "KLBN11", "KLBN
 
 
 
-
+ 
 
 
 
