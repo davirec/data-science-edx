@@ -12,11 +12,11 @@ Se o RStudio solicitar um nome de usuário e senha toda vez que você tentar env
 
 1) Definir nome de usuário e email (se você não fez isso antes)
 
-`git config --global user.name "your_username"`
-`git configuração --global user.email " your_email@example.com "`
+`git config --global user.name "davi.rec"`
+`git config --global user.email "davi.rec@gmail.com"`
 2) Criar chave SSH
 
-`ssh-keygen -t rsa -C "your_email@example.com"`
+`ssh-keygen -t rsa -C "davi.rec@gmail.com"`
 No RStudio, vá ao menu Ferramentas / Opções globais / Git SVN / Exibir chave pública e copie a chave para sua configuração de conta do Github (Editar perfil / Chaves SSH / Adicionar chave SSH).
 Para verificar se a autenticação ssh funciona, tente executar
 
@@ -32,11 +32,17 @@ Digite: yes
 
 Olá your_username! Você foi autenticado com sucesso, mas o GitHub não fornece acesso ao shell. 
 
+No windows aparece assim:
+`ssh -T git@github.com`
+Warning: Permanently added the RSA host key for IP address '140.82.113.4' to the list of known hosts.
+Hi davirec! You've successfully authenticated, but GitHub does not provide shell access.
+
+
 3) Mude remote.origin.url de HTTPS para HTTP 
 
 Pode ser específico do Windows, mas depois de 1) +2) o RStudio ainda me pede nome de usuário e senha. Depois de uma longa pesquisa no Google, encontrei uma solução aqui  e isso é
 
-`git config remote.origin.url git@github.com:your_username/your_project.git`
+`git config remote.origin.url git@github.com:davirec/data-science-edx.git`
 
 
 
