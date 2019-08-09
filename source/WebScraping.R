@@ -2,7 +2,7 @@ library(tidyverse)
 library(rvest)
 library(httr)
 
-#alterado 15/07/2019
+#alterado 15/07/2019 
 
 url <- paste0("https://en.wikipedia.org/w/index.php?title=",
               "Gun_violence_in_the_United_States_by_state&oldid=843135608")
