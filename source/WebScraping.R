@@ -1,5 +1,6 @@
 library(tidyverse)
 library(rvest)
+library(httr)
 
 #alterado 15/07/2019
 
@@ -26,6 +27,10 @@ head(tab)
 #fundamentos
 url2 <-paste0("http://www.fundamentus.com.br/detalhes.php?papel=","WEGE3")
 h2 <- read_html(url2)
+
+# encoding = ""
+#read_xml(x, encoding = "", ..., as_html = FALSE, options = "NOBLANKS")
+
 tab2 <- h2 %>% html_nodes("table")
 
 
@@ -63,14 +68,32 @@ f <- tab3_html$X2
 
 
 
-# #fundamentos3 
-# url3 <-paste0("http://www.fundamentus.com.br/","resultado.php")
-# h3 <- read_html(url3)
-# tab3 <- h3 %>% html_nodes("table")
-# 
-# 
-# tab2_html <- tab3[[1]] %>% html_table
+#fundamentos3
+url3 <-paste0("http://www.fundamentus.com.br/","resultado.php")
 
+#teste
+
+ uastring <- "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36"
+ session <- html_session(url3, user_agent(uastring))
+
+# uastring <- "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36"
+# 
+# h3 <- read_html(url3, user_agent(uastring))
+
+#fim teste
+
+
+
+ h3 <- read_html(url3)
+tab3 <- h3 %>% html_nodes("table")
+
+
+tab2_html <- tab3[[1]] %>% html_table
+
+tab2_html6<-tab2_html[tab2_html$Liq.2meses!="0,00",]
+
+
+write.csv2(tab2_html, "tab2_html.csv", row.names = FALSE)
 
 
 
