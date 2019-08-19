@@ -34,11 +34,11 @@ h2 <- read_html(url2)
 tab2 <- h2 %>% html_nodes("table")
 
 
-# tab1_html <- tab2[[1]] %>% html_table
-# tab2_html <- tab2[[2]] %>% html_table
+tab1_html <- tab2[[1]] %>% html_table
+tab2_html <- tab2[[2]] %>% html_table
 tab3_html <- tab2[[3]] %>% html_table
-# tab4_html <- tab2[[4]] %>% html_table
-# tab5_html <- tab2[[5]] %>% html_table
+tab4_html <- tab2[[4]] %>% html_table
+tab5_html <- tab2[[5]] %>% html_table
 
 #retirar a primeira linha
 
@@ -90,7 +90,7 @@ tab3 <- h3 %>% html_nodes("table")
 
 tab2_html <- tab3[[1]] %>% html_table
 
-tab2_html6<-tab2_html[tab2_html$Liq.2meses!="0,00",]
+  tab2_html6<-tab2_html[tab2_html$Liq.2meses!="0,00",]
 
 
 write.csv2(tab2_html, "tab2_html.csv", row.names = FALSE)
