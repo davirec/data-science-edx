@@ -37,9 +37,53 @@ print(xl_data)
 #listar linhas e colunas
 ts<-xl_data[y,x]
 
+tt<-xl_data[y,x]
+
+tx<-xl_data[y,x]
+
+
+library(plyr)
+i=1
+dataframe01 <- data.frame(seq(1,10,1))
+
+dataframe03 <- data.frame(seq(1,10,1))
+
+
+ # plyr
+#resultados <- join_all(list(df1,df2,df3)) 
+
+dataframe01
+
+for(i in indices) {
+  print(i)
+}
+  
+indices <- seq(1,5,1)
+
+
+
+for(i in indices) {
+  
+  i=2
+  dataframe02 <- data.frame(dataframe03[,1],ts[,i],tt[,i],tx[,i])
+  
+  
+  dataframe01 <- merge(dataframe01,dataframe02)
+  
+}
+
+
+
 #salva o arquivo
 #row.names = FALSE oculta a coluna com o número de linhas
-write.csv2(xl_data[y,x], "tste2.csv", row.names = FALSE)
+write.csv2(xl_data[y,x], "tste.csv", row.names = FALSE)
+
+
+
+
+#########
+
+
 
 
 
@@ -72,4 +116,82 @@ sort(todos.os.numeros, decreasing=FALSE, na.last=TRUE)
 
 #ordena e retira os repetidos
 unique(sort(todos.os.numeros, decreasing=FALSE, na.last=TRUE))
+
+
+
+
+# comando para reprocessar o java como root
+# 
+# export JAVA_HOME=/usr/lib/jvm/java-8-oracle
+# export PATH=$PATH:$JAVA_HOME/bin
+# R CMD javareconf
+
+#reiniciar o Rstudio
+
+
+library(xlsx)
+xl_data <- read.xlsx("EXPEC TRATADA 2.xlsx", "Planilha1")
+print(xl_data)
+#1-81
+#82-162
+#163-243
+
+a <- seq(1,81,1)
+
+b <- seq(82,162,1)
+
+c <- seq(163,243,1)
+
+library(dplyr)
+
+
+j<-1
+Lista <-0
+for(i in 1:81){
+  print(j)
+  Lista[j]<- a[i]
+  Lista[j+1]<- b[i]
+  Lista[j+2]<- c[i]
+  j<-j+3
+  
+}
+    dani <- xl_data[,Lista]
+
+#write.csv2(dani, "dani.csv", row.names = FALSE)
+
+write.xlsx(dani, "dani.xlsx")
+
+
+################333333
+
+
+teste <- data.frame(1,1,1,1,1)
+colunas <- c("Ano","Idade","TaxaH","TaxaM","Media")
+
+names(teste) <- colunas
+idade <- 0
+colunaIdade <-1
+linhaIdade <- 1
+linha <-1
+for (linhaIdade in 1:20) {
+  
+  for (anos in 1998:2017) {
+    
+      teste[linha,] <-c(anos,idade,dani[linhaIdade, colunaIdade], dani[linhaIdade, colunaIdade+1], dani[linhaIdade, colunaIdade+2])
+      linhaIdade <- linhaIdade + 1
+    
+  }
+  
+  idade <- idade+1
+  colunaIdade <- colunaIdade+1
+  linhaIdade <- 1
+  linha <- linha + 1
+}
+ 
+for (s in 1:2) {
+  for (anos in 1998:2017) {
+    print(anos)
+  }
+}
+  
 
