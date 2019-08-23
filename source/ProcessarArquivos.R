@@ -131,7 +131,7 @@ unique(sort(todos.os.numeros, decreasing=FALSE, na.last=TRUE))
 
 library(xlsx)
 xl_data <- read.xlsx("EXPEC TRATADA 2.xlsx", "Planilha1")
-print(xl_data)
+#print(xl_data)
 #1-81
 #82-162
 #163-243
@@ -149,7 +149,7 @@ library(tidyverse)
 j<-1
 Lista <-0
 for(i in 1:81){
-  print(j)
+  #print(j)
   Lista[j]<- a[i]
   Lista[j+1]<- b[i]
   Lista[j+2]<- c[i]
@@ -160,7 +160,7 @@ for(i in 1:81){
 
 #write.csv2(dani, "dani.csv", row.names = FALSE)
 
-write.xlsx(dani, "dani.xlsx")
+#write.xlsx(dani, "dani.xlsx")
 
 
 ################333333
@@ -206,9 +206,35 @@ teste %>% filter(teste$Idade==10) %>% ggplot(aes(Ano, TaxaH,TaxaM)) + geom_line(
 
 teste %>% geom_point(aes(Ano, TaxaH))
 
+teste %>% ggplot(aes(Ano, TaxaH, col = Idade)) + geom_line()
 
 plot(teste$Ano,teste$Idade)
 
 
 
 write.xlsx(teste, "dani2.xlsx")
+
+
+#################################################
+
+teste2 <- data.frame(1,1,1,1)
+colunas2 <- c("Ano","Idade","Taxa","Tipo")
+
+names(teste2) <- colunas2
+
+contador <-1
+
+
+for (linhaTeste in 1:1620) {
+  # for (anos in 1998:2017) {
+  #   print(anos)
+  # }
+  
+    teste2[contador,] <- c(teste[linhaTeste,1],teste[linhaTeste,2],teste[linhaTeste,3],"Homem")
+  teste2[contador+1,] <- c(teste[linhaTeste,1],teste[linhaTeste,2],teste[linhaTeste,4],"Mulher")
+  teste2[contador+2,] <- c(teste[linhaTeste,1],teste[linhaTeste,2],teste[linhaTeste,5],"Media")
+  
+  contador <- contador+3
+}
+
+
