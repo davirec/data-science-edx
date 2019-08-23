@@ -238,3 +238,21 @@ for (linhaTeste in 1:1620) {
 }
 
 
+teste2$Ano <- as.numeric(teste2$Ano) 
+teste2$Idade <- as.numeric(teste2$Idade ) 
+teste2$Taxa <- as.numeric(teste2$Taxa ) 
+teste2$Tipo <- as.factor(teste2$Tipo ) 
+
+
+teste2  %>% filter(teste2$Idade==10) %>% ggplot(aes(Ano, Taxa, col = Tipo)) + geom_line()
+
+teste2  %>% filter(teste2$Idade==60 & teste2$Tipo!="Media") %>% ggplot(aes(Ano, Taxa, col = Tipo)) + geom_line()
+
+teste2  %>% filter(teste2$Idade==60) %>% ggplot(aes(Ano, Taxa, col = Tipo)) + geom_line()
+
+  teste2  %>% filter((teste2$Ano==2000 | teste2$Ano==2002) & teste2$Idade==60)
+
+
+
+teste2 %>% filter(teste2$Idade==60) %>% ggplot(aes(Ano, Idade, col = Taxa)) + geom_line()
+  
