@@ -1,0 +1,72 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+Operadores lógicos em R
+
+
+which
+
+ind <- which(murders$state == "California")
+murder_rate[ind]
+#> [1] 3.37
+
+
+match
+
+ind <- match(c("New York", "Florida", "Texas"), murders$state)
+ind
+#> [1] 33 10 44
+
+Now we can look at the murder rates:
+murder_rate[ind]
+#> [1] 2.67 3.40 3.20
+
+
+%in%
+
+c("Boston", "Dakota", "Washington") %in% murders$state
+#> [1] FALSE FALSE TRUE
+
+
+
+For our example, we can form two logicals:
+
+west <- murders$region == "West"
+safe <- murder_rate <= 1
+
+and we can use the & to get a vector of logicals that tells us which states satisfy both conditions:
+
+ind <- safe & west
+murders$state[ind]
+#> [1] "Hawaii" "Idaho" "Oregon" "Utah" "Wyoming"
+
+
+
+
+
+Here is the for-loop we would write for our Sn example:
+m <- 25
+s_n <- vector(length = m) # create an empty vector
+for(n in 1:m){
+s_n[n] <- compute_s_n(n)
+}
+
+
+x <- 1:10
+sapply(x, sqrt)
+#> [1] 1.00 1.41 1.73 2.00 2.24 2.45 2.65 2.83 3.00 3.16
+
+
+
+
+
+Although
+However
+Useful
+almost 
+anything
+since
+Beware
+above
