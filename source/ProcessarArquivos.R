@@ -143,6 +143,7 @@ b <- seq(82,162,1)
 c <- seq(163,243,1)
 
 library(dplyr)
+library(tidyverse)
 
 
 j<-1
@@ -170,28 +171,44 @@ colunas <- c("Ano","Idade","TaxaH","TaxaM","Media")
 
 names(teste) <- colunas
 idade <- 0
-colunaIdade <-1
+#colunaIdade <-1
 linhaIdade <- 1
 linha <-1
-for (linhaIdade in 1:20) {
+colunaSeq <- seq(1,243,3)
+
+for (colunaIdade in colunaSeq) {
   
   for (anos in 1998:2017) {
     
-      teste[linha,] <-c(anos,idade,dani[linhaIdade, colunaIdade], dani[linhaIdade, colunaIdade+1], dani[linhaIdade, colunaIdade+2])
+      teste[linha,] <-c(anos,idade,dani[linhaIdade, colunaIdade+1], dani[linhaIdade, colunaIdade+2], dani[linhaIdade, colunaIdade])
       linhaIdade <- linhaIdade + 1
+      linha <- linha + 1
     
   }
   
   idade <- idade+1
-  colunaIdade <- colunaIdade+1
+  #colunaIdade <- colunaIdade+3
   linhaIdade <- 1
-  linha <- linha + 1
+  
 }
  
-for (s in 1:2) {
-  for (anos in 1998:2017) {
-    print(anos)
-  }
-}
+# for (s in 1:2) {
+#   for (anos in 1998:2017) {
+#     print(anos)
+#   }
+# }
   
 
+filter(teste, teste$Ano==1998 & teste$Idade==10)
+
+
+teste %>% filter(teste$Idade==10) %>% ggplot(aes(Ano, TaxaH,TaxaM)) + geom_line()
+
+teste %>% geom_point(aes(Ano, TaxaH))
+
+
+plot(teste$Ano,teste$Idade)
+
+
+
+write.xlsx(teste, "dani2.xlsx")
