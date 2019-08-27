@@ -254,5 +254,7 @@ teste2  %>% filter(teste2$Idade==60) %>% ggplot(aes(Ano, Taxa, col = Tipo)) + ge
 
 
 
-teste2 %>% filter(teste2$Idade==60) %>% ggplot(aes(Ano, Idade, col = Taxa)) + geom_line()
+teste2 %>% filter(teste2$Idade==60) %>% ggplot(aes(Ano, Taxa, col = Tipo)) + geom_line()
   
+
+
