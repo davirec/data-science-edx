@@ -756,4 +756,4 @@ acoes <- c("GBIO33", "STBP3", "TESA3", "CCPR3", "MSPA3", "KLBN3", "KLBN11", "KLB
 f <- processarAcoes(acoes)
 
 
-write.xlsx(f, "fundamentus.xlsx")
+    write.xlsx(f, "fundamentus.xlsx")
