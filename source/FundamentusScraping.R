@@ -708,7 +708,11 @@ processarAcoes <- function(listaAcao) {
     
   }
   
-  fundamentus <- data.frame(basic01, basic02, oscilacao, indicadores_fundamentos, b_patrimonial, demonstrativos)
+  #fundamentus <- data.frame(basic01, basic02, oscilacao, indicadores_fundamentos, b_patrimonial, demonstrativos)
+  
+  fundamentus <- join_all(list(basic01, basic02, oscilacao, indicadores_fundamentos, b_patrimonial, demonstrativos))
+  
+  
   print(Sys.time()- hora)
   print(c("Número de ações processadas", contador, "açoes"))
   print(c("Número de ações Enviadas para processar ", length(acoes), " açoes"))
@@ -751,9 +755,15 @@ acoes <- c("GBIO33", "STBP3", "TESA3", "CCPR3", "MSPA3", "KLBN3", "KLBN11", "KLB
 
 
 
-# acoes <- c("GBIO33")
+acoes <- c("GBIO33")
 # acao <- c("GBIO33")
-f <- processarAcoes(acoes)
+# f <- processarAcoes(acoes)
 
+f2 <- processarAcoes(acoes)
+    
 
-    write.xlsx(f, "fundamentus.xlsx")
+#write.xlsx(f, "fundamentus.xlsx")
+    
+    
+          
+    
