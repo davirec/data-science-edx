@@ -1,6 +1,6 @@
 
 source("source/fundamentus/conexao.R")
-
+    
 fundamentos_basic01 <- function(acao, tabela){
   
   # tab1_html

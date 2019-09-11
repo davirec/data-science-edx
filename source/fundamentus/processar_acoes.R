@@ -4,7 +4,7 @@ library(tidyverse)
 
 source("source/fundamentus/tratar_xml_fundamentus.R")
 
-processarAcoes <- function(listaAcao) {
+processar_acoes <- function(listaAcao) {
   
   Papel <- " "
   Tipo <- " "
@@ -109,6 +109,7 @@ processarAcoes <- function(listaAcao) {
   
   #fundamentus <- data.frame(basic01, basic02, oscilacao, indicadores_fundamentos, b_patrimonial, demonstrativos)
   
+  #transforma todos em factor
   fundamentus <- join_all(list(basic01, basic02, oscilacao, indicadores_fundamentos, b_patrimonial, demonstrativos))
   
   
@@ -134,7 +135,7 @@ converter_dados <- function(){
   
   	
   
-  # s <- str_replace_all(t[,17], ",", ".")
+    # s <- str_replace_all(t[,17], ",", ".")
   #essa tecnica funcionou melhor que o parse
   s <- str_replace_all(t[,17], "\\.", "")
   
@@ -150,10 +151,10 @@ converter_dados <- function(){
     }
 
 
-teste_processar_açoes <- function() {
+teste_processar_acoes <- function() {
   
   acoes <- c("GBIO33", "STBP3", "TESA3", "CCPR3", "MSPA3")
-  tabela <- processarAcoes(acoes)
+  tabela <- processar_acoes(acoes)
   
   return(tabela)
 }
@@ -205,7 +206,7 @@ teste_processar_açoes <- function() {
 #write.xlsx(f, "fundamentus.xlsx")
 
 
-test <- teste_processar_açoes()
+#test <- teste_processar_acoes()
 
 
 
