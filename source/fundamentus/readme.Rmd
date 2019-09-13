@@ -1,0 +1,30 @@
+---
+title: "Web Scraping Site Fundamentus"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Esse projeto tem a finalidade de ajudar escolher boas ações utilizando indicadores fundamentalista. Para isso, utiliza-se de diversos mecaninismos de web scraping da lingagem R para acessar o site fundamentus e obter informações desses indicadores. Além disso, ...
+
+### Classe conexao
+Essa classe tem a funcionalidade de acessar o site fundamentus e obter o html das paginas. Possui três funções: 
+
+* carregar_pagina_fundamentus: Monta a url e acessa a página de uma determinada ação no site fundamentus
+
+* busca_avancada: Monta a url para acessar a busca avançada do site fundamentus. Retornar todas as açoes e alguns indicadores desse site.
+
+### Classe tratar_xml_fundamentus
+
+Essa classe extrai as diversas tabelas contidas no html da paginas e consolida em uma tabela. É utilizado para construir a tabela de ações e a tabela de busca avançada.
+
+### Classe construir_tabela_acoes
+
+Constroi uma tabela contendo todas as ações passadas como parametro. Essa tabela está no formato que permite consultas semelhante a um banco de dados.
+
+### Classe construir_tabela_avancada
+
+Constroi uma tabela contendo todas as ações listada na bolsa e seus repectivos indicadores. Pode ser utilizado para realizar consultas semelhante a um banco de dados.
+

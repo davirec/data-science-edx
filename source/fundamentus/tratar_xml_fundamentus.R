@@ -1,6 +1,6 @@
 
 source("source/fundamentus/conexao.R")
-    
+      
 fundamentos_basic01 <- function(acao, tabela){
   
   # tab1_html
@@ -197,6 +197,17 @@ fundamentos_demostrativo <- function(acao, tabela){
   
   return(demonstrativos)
   
+  
+}
+
+tratar_busca_avancada <- function(xml_avancado){
+  
+  # tabela <- xml_avancado %>% html_nodes("table")
+  
+  
+  tabela_html <- xml_avancado[[1]] %>% html_table
+  
+  return(tabela_html)
   
 }
 

@@ -84,18 +84,20 @@ listar_percentual(t)
 listar_numero(t)
 
 formatar_tabela <- function(tabela){
-  tabela <- t
+  #tabela <- t
   lista_coluna_percentual <- listar_percentual(tabela)
   
   lista_coluna_numerica <- listar_numero(tabela)
   
-  test33 <- tabela %>% mutate_all(limpar_string)
+  tabela <- tabela %>% mutate_all(limpar_string)
   
-  test33 <- test33 %>% mutate_at(lista_coluna_numerica, parse_number)
+  tabela <- tabela %>% mutate_at(lista_coluna_numerica, parse_number)
   
   
-  test33 <- test33 %>% mutate_at(lista_coluna_percentual,limpar_percentual)
+  tabela <- tabela %>% mutate_at(lista_coluna_percentual,limpar_percentual)
+  
+  return(tabela)
 }
   
 
-
+teste_davi <-formatar_tabela(tab2_html)
